@@ -1,7 +1,7 @@
 from rpcClient import RPCClient
 import os.path
 
-server = RPCClient('127.0.0.1', 8080)
+server = RPCClient('192.168.12.130', 8080)
 
 server.connect()
 

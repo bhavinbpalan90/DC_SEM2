@@ -19,12 +19,14 @@ def registerFiles(fileName):
     
 
 def movefile(Platform, FileName):
+    fileFound = 'No'
     print('Inside movefile')
     f = open("metadataFile.txt", "r")
     lines = f.readlines()
     for line in lines:
         line = line.strip()
         if Platform in line and FileName in line:
+            fileFound = 'Yes'
             line = line.replace('\\','/')
             print(line)
             finalPath = '../contentServer/' + str(line)
@@ -37,6 +39,10 @@ def movefile(Platform, FileName):
                     return resultOutput
             except:
                 return 'File Not Found'
+    if fileFound == 'No':
+        return 'File Not Found'
+        ## Get the Content from Another Server   
+        
 
 
     # try:

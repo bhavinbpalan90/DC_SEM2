@@ -4,10 +4,17 @@ import inspect
 from threading import Thread
 
 SIZE = 1024
+## getting the hostname by socket.gethostname() method
+hostname = socket.gethostname()
+## getting the IP address using socket.gethostbyname() method
+ip_address = socket.gethostbyname(hostname)
+## printing the hostname and ip_address
+print(f"Hostname: {hostname}")
+print(f"IP Address: {ip_address}")
 
 class RPCServer:
 
-    def __init__(self, host:str='0.0.0.0', port:int=8080) -> None:
+    def __init__(self, host:str=ip_address, port:int=8080) -> None:
         self.host = host
         self.port = port
         self.address = (host, port)
